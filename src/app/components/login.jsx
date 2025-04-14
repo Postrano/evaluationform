@@ -18,7 +18,7 @@ const Login = () => {
     e.preventDefault();
 
     // Correct password for validation
-    const correctPassword = "qwerty1234";
+    const correctPassword = "Aquino_Postrano";
 
     if (password === correctPassword) {
       alert("Access granted! Proceeding to the Evaluation Form.");
