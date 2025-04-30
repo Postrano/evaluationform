@@ -4,8 +4,10 @@ import { db } from '../../../script/firebaseConfig';// make sure you set up fire
 import { collection, addDoc, getDocs, deleteDoc, doc } from '../../../script/firebaseConfig';
 import { jsPDF } from 'jspdf';
 import { useRef } from 'react';
+import { useRouter } from 'next/navigation';
+import { Home } from 'lucide-react';
 
-
+  
 const InternalAuditReport = () => {
   const [title, setTitle] = useState('');
   const [written, setWritten] = useState('');
@@ -15,7 +17,9 @@ const InternalAuditReport = () => {
   const [reports, setReports] = useState([]);
   const [groupedReports, setGroupedReports] = useState({});
   const [isDepartmentsOpen, setIsDepartmentsOpen] = useState(false);
-  const [activeDept, setActiveDept] = useState(null); // Track selected department
+
+  const router = useRouter();
+
 
   const departmentsList = [
     'BOD/EXECUTIVE',
@@ -212,7 +216,7 @@ const InternalAuditReport = () => {
           <h1 className="text-black font-bold">INTERNAL AUDIT REPORTS</h1>
 
           {/* Titles Dropdown */}
-          <div className="relative">
+          {/* <div className="relative">
             <select
               onChange={(e) => handleOpenReport(e.target.value)}
               className="bg-gray-400 p-2 rounded"
@@ -224,7 +228,9 @@ const InternalAuditReport = () => {
                 </option>
               ))}
             </select>
-          </div>
+          </div> */}
+
+
 
           {/* Departments Dropdown */}
           <div className="relative">
@@ -272,12 +278,15 @@ const InternalAuditReport = () => {
         </div>
 
         {/* Create Button */}
-        <button
-          onClick={handleCreate}
-          className="bg-gray-700 text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-600"
-        >
-          CREATE
-        </button>
+        <div>
+      <button
+        onClick={() => router.push("/")}
+        className="flex items-center w-full px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600"
+      >
+        <Home className="w-5 h-5 mr-2" />
+        HOME
+      </button>
+    </div>
       </div>
 
       {/* Form */}
