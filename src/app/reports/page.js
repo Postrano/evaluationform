@@ -17,6 +17,7 @@ const InternalAuditReport = () => {
   const [reports, setReports] = useState([]);
   const [groupedReports, setGroupedReports] = useState({});
   const [isDepartmentsOpen, setIsDepartmentsOpen] = useState(false);
+  const [activeDept, setActiveDept] = useState(null);
 
   const router = useRouter();
 
@@ -255,21 +256,22 @@ const InternalAuditReport = () => {
 
                     {/* Show reports for the selected department */}
                     {activeDept === dept && groupedReports[dept] && (
-                      <div className="absolute top-0 left-full bg-white text-black rounded shadow-lg ml-2 mt-1">
-                        {groupedReports[dept].map((report, rIdx) => (
-                          <div
-                            key={rIdx}
-                            onClick={() => {
-                              handleOpenReport(report.title);
-                              setIsDepartmentsOpen(false); // Close after selecting
-                            }}
-                            className="px-4 py-2 hover:bg-gray-200 cursor-pointer whitespace-nowrap"
-                          >
-                            {report.title}
-                          </div>
-                        ))}
-                      </div>
-                    )}
+  <div className="absolute top-0 left-full bg-white text-black rounded shadow-lg ml-2 mt-1">
+    {groupedReports[dept].map((report, rIdx) => (
+      <div
+        key={rIdx}
+        onClick={() => {
+          handleOpenReport(report.title);
+          setIsDepartmentsOpen(false);
+        }}
+        className="px-4 py-2 hover:bg-gray-200 cursor-pointer whitespace-nowrap"
+      >
+        {report.title}
+      </div>
+    ))}
+  </div>
+)}
+
                   </div>
                 ))}
               </div>

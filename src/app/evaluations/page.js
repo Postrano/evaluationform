@@ -301,14 +301,14 @@ const [evaluations, setEvaluations] = useState([]);
             return (
                 <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6 text-black">
                          <div className="float-right">
-  <button
-    onClick={() => router.push("/")}
-    className="flex items-center w-auto px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600"
-  >
-    <Home className="w-5 h-5 mr-2" />
-    HOME
-  </button>
-</div>
+                            <button
+                                onClick={() => router.push("/")}
+                                className="flex items-center w-auto px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600"
+                            >
+                                <Home className="w-5 h-5 mr-2" />
+                                HOME
+                            </button>
+                         </div>
 
                
                        
