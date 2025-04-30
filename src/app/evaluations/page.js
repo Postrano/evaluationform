@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import * as XLSX from "xlsx";
 import { db, collection, addDoc, getDocs,getDoc,doc,query,where,deleteDoc } from '../../../script/firebaseConfig';
+import { useRouter } from 'next/navigation';
+import { Home } from 'lucide-react';
 const EvaluationForm = () => {
     const [employeeName, setEmployeeName] = useState('');
     const [evaluationDate, setEvaluationDate] = useState('');
@@ -9,6 +11,8 @@ const EvaluationForm = () => {
     const [employeeData, setEmployeeData] = useState([]);
  
     const [loading, setLoading] = useState(true); // Track loading state
+     const router = useRouter();
+    
   
 
 
@@ -296,7 +300,22 @@ const [evaluations, setEvaluations] = useState([]);
 
             return (
                 <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6 text-black">
-                    <h1 className="text-2xl font-bold mb-6">Employee Evaluation Form</h1>
+                         <div className="float-right">
+  <button
+    onClick={() => router.push("/")}
+    className="flex items-center w-auto px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600"
+  >
+    <Home className="w-5 h-5 mr-2" />
+    HOME
+  </button>
+</div>
+
+               
+                       
+                        <h1 className="text-2xl font-bold mb-6">Employee Evaluation Form</h1>
+                          
+
+                   
             
                     {/* Employee Selector */}
                     <div className="mb-4">
@@ -315,7 +334,10 @@ const [evaluations, setEvaluations] = useState([]);
                                 <option key={emp.id} value={emp.name}>{emp.name}</option>
                             ))}
                         </select>
+
                     </div>
+
+                    
             
                     {/* Evaluation Form */}
                     <div className="w-full max-w-3xl bg-white shadow-md p-6 rounded">
