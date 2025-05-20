@@ -30,8 +30,8 @@ const Login = () => {
 
     // Define correct passwords
     const passwords = {
-      evaluation: "Aquino_Postrano", // password for Evaluation Form
-      audit: "Aquino_Postrano",      // password for Internal Audit Report (change this as needed)
+      evaluation: "aquinopostrano", // password for Evaluation Form
+      audit: "aquinopostrano",      // password for Internal Audit Report (change this as needed)
     };
 
     if (password === passwords[currentForm]) {
